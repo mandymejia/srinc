@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      
+      #SeedSelector {
+      width: 700px;
+      background-color: #ffcc33;
+      margin: auto;
+      }
+      #SeedList {
+      width: 300px;
+      float: left;
+      height: 300px;
+      background-color: blue;
+      }
+
+      #Viewport {
+      width: 300px;
+      float: right;
+      height: 300px;
+      background-color: green;
+      }
+
+      html, body { 
+      background-color:#000;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden !important;  
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="SeedSelector">
+      <div id="SeedList">
+	<h2>Network Selector</h2>
+	<p>Choose a seed to assess reliability. You can filter the list of seeds by using the Network Selector below. </p>
+	<div>
+	  <select name="networks" id="networks">
+	  </select>
+	</div>
+	
+	<div>
+	  <select name="seeds" id="seeds">
+	    <option value="ROI 1">roi 1</option>
+	    <option value="ROI 2">roi 2</option>
+	  </select>
+	</div>
+
+
+      </div>
+      
+      <div id="Viewport">
+	<p>My viewbox goes here</p>
+	<canvas id="mycanvas"></canvas>
+      </div>
+    </div>
+
+    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="src/xtk.js"></script>
+
+
+    <script>
+      var $select = $('#networks');
+      $.getJSON("data/networks.json",function(data){
+      $.each(data,function(i,val){
+      $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})});
+    </script>
+
+    <script>
+      window.onload = function() {
+
+      // create and initialize a 3D renderer
+      var r = new X.renderer3D();
+      r.init();
+      
+      // create a new X.mesh
+      var porsche = new X.mesh();
+      // .. and associate the .stl to it
+      porsche.file = 'http://x.babymri.org/?porsche.stl';
+      // activate the magic mode which results in a colorful rendering since the
+      // point colors are based on the point position
+      porsche.magicmode = true;
+      // set a caption which appears on mouseover
+      porsche.caption = 'The magic Porsche!';
+      
+      // .. add the porsche
+      r.add(porsche);
+      
+      // .. and start the loading/rendering
+      r.render();
+      
+      };
+      
+    </script>
+
+
+
+  </body>
+</html>
+
+
