@@ -47,15 +47,41 @@
 
       .dropdown a:hover {background-color: #ddd}
 
+      
+      #SeedSelector {
+      width: 300px;
+      background-color: #ffcc33;
+      margin: auto;
+      }
+      #SeedList {
+      width: 100px;
+      float: left;
+      height: 300px;
+      background-color: blue;
+      }
+      #Viewport {
+      width: 200px;
+      float: left;
+      height: 300px;
+      background-color: green;
+      }
+
       .show {display:block;}
     </style>
   </head>
   <body>
+    <div id="SeedSelector">
+      <div id="SeedList">
+	<h2>Network Selector2</h2>
+	<p>This list is auto generated :)</p>
+	<select name="networks" id="datas"></select>
 
-    <h2>Network Selector2</h2>
-    <p>This list is auto generated :)</p>
-    <select name="networks" id="datas"></select>
-
+      </div>
+      
+      <div id="Viewport">
+	<p>My viewbox goes here</p>
+      </div>
+    </div>
 
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 
