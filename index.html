@@ -79,45 +79,6 @@
     </script>
 
 
-    <script>
-      /* When the user clicks on the button,
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      data = $.getJSON("data/networks.json")
-      <!-- obj = JSON.parse("data/networks.json"); -->
-
-      $("button").click(function(){
-      $.getJSON("data/networks.json", function(result){
-      $.each(result, function(i, field){
-      $("div").append(field + " ");
-      });
-      });
-      });
-
-
-      
-      $.each(data, function(i, val){
-      $select.append($('<option />', { value: (i+1), text: val[i+1] }));
-      });
-
-      function filterFunction() {
-      var input, filter, ul, li, a, i;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      div = document.getElementById("myDropdown");
-      a = div.getElementsByTagName("a");
-      for (i = 0; i < a.length; i++) {
-		      if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
-        } else {
-        a[i].style.display = "none";
-        }
-	}
-	}
-    </script>
 
   </body>
 </html>
