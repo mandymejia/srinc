@@ -73,6 +73,11 @@
 
     <script>
       var $select = $('#datas');
+      $select.append($('<option />', {value: "Value", text: "MyText"}))
+    </script>
+
+    <script>
+      var $select = $('#datas');
       $.getJSON("data/networks.json"),function(data){
       $.each(data,function(i,val){
       $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})};
