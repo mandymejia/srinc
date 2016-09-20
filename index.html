@@ -46,14 +46,17 @@
       
       <div id="Viewport">
 	<p>My viewbox goes here</p>
+	<canvas id="mycanvas"></canvas>
       </div>
     </div>
 
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="http://get.goXTK.com/xtk.js"></script>
+
 
     <script>
-      var $select = $('#seeds');
+      var $select = $('#networks');
       $.getJSON("data/networks.json",function(data){
       $.each(data,function(i,val){
       $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})});
@@ -65,3 +68,21 @@
 </html>
 
 
+<script>
+window.onload = function() { 
+  var r = new X.renderer2D();
+  r.orientation = 'Z';
+  r.init();
+  var v = new X.volume();
+  v.file = 'https://dl.dropboxusercontent.com/u/1847425/mr.dcm';
+  r.add(v);
+  
+  r.onWindowLevel();
+  r.render();
+  var ele=  document.createElement('canvas');
+  ele.setAttribute('id', 'xtkCanvas');
+  r.onShowtime = function() {
+  };
+  volume = v;
+};
+</script>
