@@ -79,9 +79,9 @@
 
     <script>
       var $select = $('#datas');
-      $.getJSON("data/networks.json"),function(data){
+      $.getJSON("data/networks.json",function(data){
       $.each(data,function(i,val){
-      $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})};
+      $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})});
     </script>
 
 
