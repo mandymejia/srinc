@@ -71,6 +71,13 @@
 
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 
+    <script>
+      var $select = $('#datas');
+      $.getJSON("data/networks.json"),function(data){
+      $.each(data,function(i,val){
+      $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})};
+    </script>
+
 
     <script>
       /* When the user clicks on the button,
@@ -90,7 +97,8 @@
       });
       });
 
-      var $select = $('#datas');
+
+      
       $.each(data, function(i, val){
       $select.append($('<option />', { value: (i+1), text: val[i+1] }));
       });
