@@ -4,7 +4,7 @@
     <style>
       
       #SeedSelector {
-      width: 900px;
+      width: 700px;
       background-color: #ffcc33;
       margin: auto;
       }
@@ -21,15 +21,20 @@
       background-color: green;
       }
 
-      .show {display:block;}
     </style>
   </head>
   <body>
     <div id="SeedSelector">
       <div id="SeedList">
-	<h2>Network Selector2</h2>
-	<p>This list is auto generated :)</p>
-	<select name="networks" id="datas"></select>
+	<h2>Network Selector</h2>
+	<p>Choose a seed to assess reliability. You can filter the list of seeds by using the Network Selector below. </p>
+	<select name="networks" id="networks"></select>
+	
+	<select 
+	   name="seeds" 
+	   id="seeds"
+	   multiple="true"
+	   </select>
 
       </div>
       
@@ -42,7 +47,7 @@
 
 
     <script>
-      var $select = $('#datas');
+      var $select = $('#seeds');
       $.getJSON("data/networks.json",function(data){
       $.each(data,function(i,val){
       $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})});
