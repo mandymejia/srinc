@@ -82,6 +82,14 @@
       data = $.getJSON("data/networks.json")
       <!-- obj = JSON.parse("data/networks.json"); -->
 
+      $("button").click(function(){
+      $.getJSON("data/networks.json", function(result){
+      $.each(result, function(i, field){
+      $("div").append(field + " ");
+      });
+      });
+      });
+
       var $select = $('#datas');
       $.each(data, function(i, val){
       $select.append($('<option />', { value: (i+1), text: val[i+1] }));
