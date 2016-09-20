@@ -62,27 +62,28 @@
       $select.append($('<option />', { value: val["shortname"], text: val["name"] }))})});
     </script>
 
+    <script>
+      window.onload = function() { 
+      var r = new X.renderer2D();
+      r.orientation = 'Z';
+      r.init();
+      var v = new X.volume();
+      v.file = 'https://dl.dropboxusercontent.com/u/1847425/mr.dcm';
+      r.add(v);
+      
+      r.onWindowLevel();
+      r.render();
+      var ele=  document.createElement('canvas');
+      ele.setAttribute('id', 'xtkCanvas');
+      r.onShowtime = function() {
+      };
+      volume = v;
+      };
+    </script>
+
 
 
   </body>
 </html>
 
 
-<script>
-window.onload = function() { 
-  var r = new X.renderer2D();
-  r.orientation = 'Z';
-  r.init();
-  var v = new X.volume();
-  v.file = 'https://dl.dropboxusercontent.com/u/1847425/mr.dcm';
-  r.add(v);
-  
-  r.onWindowLevel();
-  r.render();
-  var ele=  document.createElement('canvas');
-  ele.setAttribute('id', 'xtkCanvas');
-  r.onShowtime = function() {
-  };
-  volume = v;
-};
-</script>
